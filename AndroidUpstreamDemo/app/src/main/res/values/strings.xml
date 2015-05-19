@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">AndroidUpstreamDemo</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="project_id">519296367272</string>
+    <string name="button_text">Send upstream message</string>
+    <string name="edit_text_hint">Enter upstream message here</string>
+</resources>
