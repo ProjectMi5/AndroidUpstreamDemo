@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ public class MainActivity extends Activity {
 
     private Button button;
     private EditText editText;
+    private CheckBox checkBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +56,15 @@ public class MainActivity extends Activity {
                     Toast.makeText(applicationContext, "Please insert text!", Toast.LENGTH_LONG).show();
                 }
                 else{
-                    editText.setText("");
+                    if(checkBox.isChecked()) {
+                        editText.setText("");
+                    }
                     sendUpstreamMessageInBackground(text);
                 }
             }
         });
         editText = (EditText) findViewById(R.id.editText);
+        checkBox = (CheckBox) findViewById(R.id.checkBox);
 
         SharedPreferences prefs = getSharedPreferences(SHARED_PREF_NAME,
                 Context.MODE_PRIVATE);
@@ -150,12 +155,6 @@ public class MainActivity extends Activity {
                     Toast.LENGTH_LONG).show();
         }
         return true;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        checkPlayServices();
     }
 
     private void sendUpstreamMessageInBackground(final String message) {

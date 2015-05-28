@@ -6,4 +6,5 @@
     <string name="project_id">519296367272</string>
     <string name="button_text">Send upstream message</string>
     <string name="edit_text_hint">Enter upstream message here</string>
+    <string name="check_box_text">Clear text after sending</string>
 </resources>
