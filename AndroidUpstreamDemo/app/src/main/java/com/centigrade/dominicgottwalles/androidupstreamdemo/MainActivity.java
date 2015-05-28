@@ -171,9 +171,12 @@ public class MainActivity extends Activity {
                         gcmObj = GoogleCloudMessaging
                                 .getInstance(applicationContext);
                     }
-                    gcmObj.send(getResources().getString(R.string.project_id) + "@gcm.googleapis.com", String.valueOf(id), data);
+                    gcmObj.send(getResources().getString(R.string.project_id) + "@gcm.googleapis.com", String.valueOf(id), 0, data);
                     msg = "Sent message";
                 } catch (IOException ex) {
+                    msg = "Error :" + ex.getMessage();
+                }
+                catch (IllegalArgumentException ex){
                     msg = "Error :" + ex.getMessage();
                 }
                 return msg;
